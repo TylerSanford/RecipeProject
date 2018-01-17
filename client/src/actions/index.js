@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const GET_RECIPES = 'GET_RECIPES';
 
-const endpoint = 'http://localhost:4000/api/recipes';
+const endpoint = '//localhost:4000/api/recipes';
 
 export const getRecipes = () => {
   const recipesRequest = axios.get(endpoint);
