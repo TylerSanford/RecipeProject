@@ -11,7 +11,7 @@ const usersEndpoints = require('./endpoints/usersEndpoints.js');
 const server = express();
 
 // HEROKU ENABLE
-// server.use(express.static(path.join(__dirname, 'client/build')));
+server.use(express.static(path.join(__dirname, 'client/build')));
 
 server.use(bodyParser.json());
 server.use(cors());
@@ -22,13 +22,13 @@ server.use('/api/users', usersEndpoints);
 // server.use('/api/contexts', contextsEndpoints);
 
 // HEROKU ENABLE
-// server.get('*', (req, res) => {
-//   res.sendFile(path.join(__dirname + '/client/build/index.html'));
-// });
+server.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname + '/client/build/index.html'));
+});
 
 // HEROKU VERSION
-// const port = process.env.PORT || 4000;
+const port = process.env.PORT || 4000;
 
 //LOCAL VERSION
-const port = 4000;
+// const port = 4000;
 server.listen(port, () => console.log(`running on port ${port}`));
