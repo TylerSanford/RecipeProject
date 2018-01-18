@@ -2,6 +2,17 @@
 
 Created by Tyler Sanford
 
+## TODO LIST
+
+| DONE + | Task               | Description                                                   |
+| ------ | ------------------ | ------------------------------------------------------------- |
+| +      | Switch to postgres | Switch database and migrate from sqlite to postgres           |
+|        | Research Blog/Blob | Research blog/blob for storing picture data                   |
+|        | Add table to DB    | Add description table to recepies component                   |
+|        | Update RecipeCard  | Updated RecipeCard component to reflect description db change |
+
+## API INFO
+
 ### RECIPES
 
 | +/- | Command  | Path                             | Description                                  | Return Type |
@@ -39,3 +50,12 @@ Created by Tyler Sanford
 | -   | [POST]   | 'api/comments/plusOne'   | Adds a like count to a comment | 200 Success |
 | -   | [PUT]    | 'api/comments/update'    | Updates a comment              | Object      |
 | -   | [DELETE] | 'api/comments/delete'    | Deletes a comment              | Object      |
+
+## LIST OF ADVANCED FEATURES
+
+| Component | Feature            | Description                                                 | Technologies              |
+| --------- | ------------------ | ----------------------------------------------------------- | ------------------------- |
+| Front End | Responsive Design  | Webpage is completely responsive                            | React, Redux, Material-Ui |
+| Front End | Frontend with REST | Front end communicates to backend RESTfully                 | Axios                     |
+| Database  | Database           | Stores all data available for the website                   | Postgres, Knex.js         |
+| Backend   | RESTful API        | Server fetches data from database when called from frontend | Express                   |

@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
+
 import '../App.css';
 import './recipe.css';
 
-import Recipe from './Recipe';
+import { withStyles } from 'material-ui/styles';
+import AppBar from 'material-ui/AppBar';
+import Toolbar from 'material-ui/Toolbar';
+import IconButton from 'material-ui/IconButton';
+import MenuIcon from 'material-ui-icons/Menu';
+import Typography from 'material-ui/Typography';
+
+import RecipeCard from './RecipeCard';
 
 class Recipes extends Component {
   constructor(props) {
@@ -22,13 +30,22 @@ class Recipes extends Component {
 
   render() {
     return (
-      <div class="wrapper">
-        <div class="page header">Recipes!</div>
-        <br />
-        <div class="table">
+      <div className="wrapper">
+        <AppBar position="static">
+          <Toolbar>
+            <IconButton color="contrast" aria-label="Menu">
+              <MenuIcon />
+            </IconButton>
+            <Typography type="title" color="inherit">
+              Tyler's Recipe Project
+            </Typography>
+          </Toolbar>
+        </AppBar>
+
+        <div className="page body">
           {this.props.recipes.map((recipe, i) => {
             return (
-              <Recipe
+              <RecipeCard
                 name={recipe.name}
                 author={recipe.author}
                 createdAt={recipe.createdAt}

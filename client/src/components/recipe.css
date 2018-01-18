@@ -1,1 +1,27 @@
+.page.header {
+  font-size: 40px;
+  border: 1px solid red;
+  background-color: red;
+  height: 45;
+  width: 95%;
+  text-align: center;
+}
 
+.page.body {
+  display: flex;
+  margin-top: 20px;
+  background-color: lightblue;
+  border: 1px solid blue;
+  width: 90%;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.wrapper {
+  background-color: lightgray;
+  display: flex;
+  border: 1px solid black;
+  flex-wrap: wrap;
+  width: 90%;
+  justify-content: center;
+}

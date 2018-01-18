@@ -2,7 +2,11 @@ import axios from 'axios';
 
 export const GET_RECIPES = 'GET_RECIPES';
 
-const endpoint = '/api/recipes';
+// HEROKU
+// const endpoint = '/api/recipes';
+
+// LOCAL
+const endpoint = 'http://localhost:4000/api/recipes';
 
 export const getRecipes = () => {
   const recipesRequest = axios.get(endpoint);

@@ -4,7 +4,7 @@
   "description": "Tyler Sanford Personal Project",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "nodemon index.js",
     "heroku-postbuild":
       "cd client && npm install --only=dev && npm install && npm run build"
   },
@@ -15,10 +15,9 @@
     "cors": "^2.8.4",
     "express": "^4.16.2",
     "knex": "^0.14.2",
-    "mysql": "^2.15.0",
     "node-gyp": "^3.6.2",
     "node-pre-gyp": "^0.6.39",
-    "source": "0.0.3",
-    "sqlite3": "^3.1.13"
+    "pg": "^7.4.1",
+    "source": "0.0.3"
   }
 }
