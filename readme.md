@@ -10,6 +10,8 @@ Created by Tyler Sanford
 |        | Research Blog/Blob | Research blog/blob for storing picture data                   |
 |        | Add table to DB    | Add description table to recepies component                   |
 |        | Update RecipeCard  | Updated RecipeCard component to reflect description db change |
+| +      | Add React-Router   | Add React-Router for navigation                               |
+|        | Add create Recipe  | Add static page to create recipe with text editor             |
 
 ## API INFO
 
@@ -53,9 +55,16 @@ Created by Tyler Sanford
 
 ## LIST OF ADVANCED FEATURES
 
-| Component | Feature            | Description                                                 | Technologies              |
-| --------- | ------------------ | ----------------------------------------------------------- | ------------------------- |
-| Front End | Responsive Design  | Webpage is completely responsive                            | React, Redux, Material-Ui |
-| Front End | Frontend with REST | Front end communicates to backend RESTfully                 | Axios                     |
-| Database  | Database           | Stores all data available for the website                   | Postgres, Knex.js         |
-| Backend   | RESTful API        | Server fetches data from database when called from frontend | Express                   |
+| Component | Feature               | Description                                                 | Technologies                            |
+| --------- | --------------------- | ----------------------------------------------------------- | --------------------------------------- |
+| Front End | Responsive Design     | Webpage is completely responsive                            | React, React-Router, Redux, Material-Ui |
+| Front End | Frontend with REST    | Front end communicates to backend RESTfully                 | Axios                                   |
+| Database  | Database              | Stores all data available for the website                   | Postgres, Knex.js                       |
+| Backend   | RESTful API           | Server fetches data from database when called from frontend | Express                                 |
+| DevOps    | Environment Detection | App changes configuration files based on server environment | DotEnv                                  |
+
+## Special Thanks
+
+| Name          | Organization       | Note                                                                                                              |
+| ------------- | ------------------ | ----------------------------------------------------------------------------------------------------------------- |
+| Wesley Harvey | LambdaSchool - CS1 | Wesley went out of his way an inplemented a feature into this project that helped me for testsing and development |

@@ -1,3 +1,6 @@
+require('dotenv').config();
+const keys = require('./configuration/keys');
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -8,10 +11,9 @@ const usersEndpoints = require('./endpoints/usersEndpoints.js');
 // const actionsEndpoints = require('./endpoints/actionsEndpoints.js');
 // const contextsEndpoints = require('./endpoints/contextsEndpoints.js');
 
+// HEROKU ASSIGNS TO PORT; LOCAL USES LOCAL_PORT
+const PORT = process.env.PORT || process.env.LOCAL_PORT;
 const server = express();
-
-// HEROKU ENABLE
-server.use(express.static(path.join(__dirname, 'client/build')));
 
 server.use(bodyParser.json());
 server.use(cors());
@@ -21,14 +23,15 @@ server.use('/api/users', usersEndpoints);
 // server.use('/api/actions', actionsEndpoints);
 // server.use('/api/contexts', contextsEndpoints);
 
-// HEROKU ENABLE
-server.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname + '/client/build/index.html'));
-});
+// USED FOR PRODUCTION ONLY
+if (process.env.NODE_ENV === 'production') {
+  server.use(express.static('client/build'));
+  // server.use(express.static(path.join('client/build')));
 
-// HEROKU VERSION
-const port = process.env.PORT || 4000;
+  const path = require('path');
+  server.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
+}
 
-//LOCAL VERSION
-// const port = 4000;
-server.listen(port, () => console.log(`running on port ${port}`));
+server.listen(PORT, () => console.log(`running on port ${PORT}`));

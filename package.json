@@ -3,21 +3,36 @@
   "version": "1.0.0",
   "description": "Tyler Sanford Personal Project",
   "main": "index.js",
+  "engines": {
+    "node": "8.9.x",
+    "npm": "5.6.x"
+  },
   "scripts": {
     "start": "node index.js",
+    "server": "nodemon index.js",
+    "client": "cd client && npm start",
+    "dev":
+      "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
     "heroku-postbuild":
-      "cd client && npm install --only=dev && npm install && npm run build"
+      "NPM_CONFIG_PRODUCTION=false cd client && { npm install && npm run build; }"
   },
   "author": "Tyler Sanford",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.2",
+    "concurrently": "^3.5.1",
     "cors": "^2.8.4",
+    "dotenv": "^4.0.0",
     "express": "^4.16.2",
     "knex": "^0.14.2",
     "node-gyp": "^3.6.2",
     "node-pre-gyp": "^0.6.39",
     "pg": "^7.4.1",
     "source": "0.0.3"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.1",
+    "dotenv": "^4.0.0",
+    "nodemon": "^1.14.11"
   }
 }
