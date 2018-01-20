@@ -9,10 +9,12 @@
   },
   "scripts": {
     "start": "nodemon index.js",
-    "server": "nodemon index.js",
+    "server": "node index.js",
     "client": "cd client && npm start",
-    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false cd client && { npm install && npm run build; }"
+    "dev":
+      "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+    "heroku-postbuild":
+      "NPM_CONFIG_PRODUCTION=false cd client && { npm install && npm run build; }"
   },
   "author": "Tyler Sanford",
   "license": "ISC",
