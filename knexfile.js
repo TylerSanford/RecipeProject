@@ -9,7 +9,7 @@ module.exports = {
     user: keys.PGSQL_USER,
     password: keys.PGSQL_PASSWORD,
     database: keys.PGSQL_DATABASE,
-    port: keys.PSQL_PORT
+    port: keys.PGSQL_PORT
   },
   searchPath: ['knex', 'public'],
   useNullAsDefault: true,
