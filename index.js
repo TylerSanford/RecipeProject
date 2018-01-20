@@ -1,6 +1,6 @@
 require('dotenv').config();
 const keys = require('./configuration/keys');
-
+console.log('keys: ', keys);
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');

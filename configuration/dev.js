@@ -6,9 +6,9 @@
  */
 
 module.exports = {
-  PGSQL_HOST: process.env.LOCAL_HOST,
-  PGSQL_USER: process.env.LOCAL_USER,
-  PGSQL_PASSWORD: process.env.LOCAL_PASSWORD,
+  PGSQL_HOST: process.env.LOCAL_PGSQL_HOST,
+  PGSQL_USER: process.env.LOCAL_PGSQL_USER,
+  PGSQL_PASSWORD: process.env.LOCAL_PGSQL_PASSWORD,
   PGSQL_DATABASE: process.env.LOCAL_PGSQL_DATABASE,
   PGSQL_PORT: process.env.LOCAL_PGSQL_PORT
 };
