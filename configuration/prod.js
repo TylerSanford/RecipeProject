@@ -5,7 +5,6 @@
  */
 
 module.exports = {
-  console.log("Heroku production", process.env);
   PGSQL_HOST: process.env.PROD_PGSQL_HOST,
   PGSQL_USER: process.env.PROD_PGSQL_USER,
   PGSQL_PASSWORD: process.env.PROD_PGSQL_PASSWORD,
