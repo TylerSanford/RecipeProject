@@ -2,7 +2,6 @@ import axios from 'axios';
 
 export const GET_RECIPES = 'GET_RECIPES';
 
-console.log(process.env.NODE_ENV);
 const endpoint = '/api/recipes';
 
 // if (process.env.NODE_ENV === 'production') {

@@ -7,11 +7,12 @@ Created by Tyler Sanford
 | DONE + | Task               | Description                                                   |
 | ------ | ------------------ | ------------------------------------------------------------- |
 | +      | Switch to postgres | Switch database and migrate from sqlite to postgres           |
-|        | Research Blog/Blob | Research blog/blob for storing picture data                   |
-|        | Add table to DB    | Add description table to recepies component                   |
-|        | Update RecipeCard  | Updated RecipeCard component to reflect description db change |
+| -      | Research Blog/Blob | Research blog/blob for storing picture data                   |
+| -      | Add table to DB    | Add description table to recepies component                   |
+| -      | Update RecipeCard  | Updated RecipeCard component to reflect description db change |
 | +      | Add React-Router   | Add React-Router for navigation                               |
-|        | Add create Recipe  | Add static page to create recipe with text editor             |
+| ~      | Add create Recipe  | Add static page to create recipe with text editor             |
+| +      | Implement DotEnv   | Implement DotEnv to change config files based on environment  |
 
 ## API INFO
 
@@ -53,7 +54,7 @@ Created by Tyler Sanford
 | -   | [PUT]    | 'api/comments/update'    | Updates a comment              | Object      |
 | -   | [DELETE] | 'api/comments/delete'    | Deletes a comment              | Object      |
 
-## LIST OF ADVANCED FEATURES
+## LIST OF TECHNOLOGIES
 
 | Component | Feature               | Description                                                 | Technologies                            |
 | --------- | --------------------- | ----------------------------------------------------------- | --------------------------------------- |
