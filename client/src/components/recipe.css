@@ -6,27 +6,9 @@
   justify-content: space-evenly;
 }
 
-/* .wrapper {
-  background-color: lightgray;
-  display: flex;
-  border: 1px solid black;
-  flex-wrap: wrap;
-  width: 100%;
-  justify-content: center;
-} */
-
-.header {
-  font-size: 1rem;
+.card__title {
+  font-size: 100%;
   font-weight: bold;
-  color: white;
-}
-
-.subheader {
-  font-size: 11px;
-  font-weight: bold;
-  color: white;
-}
-
-.cardHeader {
-  background-color: #1976d2;
+  white-space: nowrap;
+  text-align: center;
 }

@@ -15,9 +15,9 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div className="root">
-          <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+          <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
             <a class="navbar-brand" href="/">
-              Tyler's Recipe Project
+              R
             </a>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div class="navbar-nav mr-auto mt-2 mt-lg-0">
