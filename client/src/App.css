@@ -9,3 +9,47 @@
   width: 100%;
   justify-content: center;
 }
+
+.appBar {
+  background-color: #004ba0 !important;
+}
+
+.appBarDiv {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.outsideContainer {
+  width: 25%;
+  height: 70%;
+  margin-right: 75px;
+  display: flex;
+  border: 1px solid black;
+}
+
+.insideContainer {
+  margin-top: 0 !important;
+  height: 100%;
+}
+
+.inputBox {
+  flex-grow: 1 !important;
+}
+
+.input {
+  width: 100%;
+  border: 0;
+}
+
+.iconContainer {
+  margin-left: 8;
+  padding-right: 0 !important;
+}
+
+.tabs {
+  color: black;
+  background-color: green;
+}

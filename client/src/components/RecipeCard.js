@@ -10,13 +10,15 @@ import './recipe.css';
 const styles = {
   card: {
     maxWidth: 300,
-    margin: 30
+    margin: 30,
+    backgroundColor: ''
   },
   img: {
     maxWidth: 300
   },
   avatar: {
-    backgroundColor: 'red'
+    backgroundColor: '#00e676',
+    color: 'black'
   }
 };
 
@@ -31,6 +33,7 @@ const Recipe = props => {
             {props.madeIt}
           </Avatar>
         }
+        className="cardHeader"
       />
       <img
         style={styles.img}
