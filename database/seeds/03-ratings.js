@@ -74,104 +74,104 @@ exports.seed = function(knex, Promise) {
           stars: 3
         },
         // Recipe #3
-        {
-          recipeId: 3,
-          stars: 3
-        },
-        {
-          recipeId: 3,
-          stars: 3
-        },
-        {
-          recipeId: 3,
-          stars: 2
-        },
-        {
-          recipeId: 3,
-          stars: 5
-        },
-        {
-          recipeId: 3,
-          stars: 4
-        },
-        {
-          recipeId: 3,
-          stars: 4
-        },
-        {
-          recipeId: 3,
-          stars: 4
-        },
-        {
-          recipeId: 3,
-          stars: 1
-        },
-        // Recipe #4
-        {
-          recipeId: 4,
-          stars: 2
-        },
-        {
-          recipeId: 4,
-          stars: 2
-        },
-        {
-          recipeId: 4,
-          stars: 4
-        },
-        {
-          recipeId: 4,
-          stars: 5
-        },
-        {
-          recipeId: 4,
-          stars: 4
-        },
-        {
-          recipeId: 4,
-          stars: 1
-        },
-        {
-          recipeId: 4,
-          stars: 5
-        },
-        {
-          recipeId: 4,
-          stars: 3
-        },
-        // Recipe #5
-        {
-          recipeId: 5,
-          stars: 5
-        },
-        {
-          recipeId: 5,
-          stars: 5
-        },
-        {
-          recipeId: 5,
-          stars: 4
-        },
-        {
-          recipeId: 5,
-          stars: 4
-        },
-        {
-          recipeId: 5,
-          stars: 3
-        },
-        {
-          recipeId: 5,
-          stars: 2
-        },
-        {
-          recipeId: 5,
-          stars: 2
-        },
-        {
-          recipeId: 5,
-          stars: 1
-        }
+        // {
+        //   recipeId: 3,
+        //   stars: 3
+        // },
+        // {
+        //   recipeId: 3,
+        //   stars: 3
+        // },
+        // {
+        //   recipeId: 3,
+        //   stars: 2
+        // },
+        // {
+        //   recipeId: 3,
+        //   stars: 5
+        // },
+        // {
+        //   recipeId: 3,
+        //   stars: 4
+        // },
+        // {
+        //   recipeId: 3,
+        //   stars: 4
+        // },
+        // {
+        //   recipeId: 3,
+        //   stars: 4
+        // },
+        // {
+        //   recipeId: 3,
+        //   stars: 1
+        // },
+        // // Recipe #4
+        // {
+        //   recipeId: 4,
+        //   stars: 2
+        // },
+        // {
+        //   recipeId: 4,
+        //   stars: 2
+        // },
+        // {
+        //   recipeId: 4,
+        //   stars: 4
+        // },
+        // {
+        //   recipeId: 4,
+        //   stars: 5
+        // },
+        // {
+        //   recipeId: 4,
+        //   stars: 4
+        // },
+        // {
+        //   recipeId: 4,
+        //   stars: 1
+        // },
+        // {
+        //   recipeId: 4,
+        //   stars: 5
+        // },
+        // {
+        //   recipeId: 4,
+        //   stars: 3
+        // },
+        // // Recipe #5
+        // {
+        //   recipeId: 5,
+        //   stars: 5
+        // },
+        // {
+        //   recipeId: 5,
+        //   stars: 5
+        // },
+        // {
+        //   recipeId: 5,
+        //   stars: 4
+        // },
+        // {
+        //   recipeId: 5,
+        //   stars: 4
+        // },
+        // {
+        //   recipeId: 5,
+        //   stars: 3
+        // },
+        // {
+        //   recipeId: 5,
+        //   stars: 2
+        // },
+        // {
+        //   recipeId: 5,
+        //   stars: 2
+        // },
+        // {
+        //   recipeId: 5,
+        //   stars: 1
+        // }
       ]);
     });
 };

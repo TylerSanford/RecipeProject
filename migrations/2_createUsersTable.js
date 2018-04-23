@@ -16,7 +16,8 @@ exports.up = function(knex, Promise) {
     tbl
       .integer('userClass')
       .references('id')
-      .inTable('userClass');
+      .inTable('userClass')
+      .onDelete('CASCADE');
   });
 };
 

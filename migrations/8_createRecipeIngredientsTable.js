@@ -6,11 +6,13 @@ exports.up = function(knex, Promise) {
     tbl
       .integer('measurementsId')
       .references('id')
-      .inTable('measurements');
+      .inTable('measurements')
+      .onDelete('CASCADE');
     tbl
       .integer('ingredientsId')
       .references('id')
-      .inTable('ingredients');
+      .inTable('ingredients')
+      .onDelete('CASCADE');
     tbl.string('notes');
   });
 };

@@ -7,7 +7,7 @@ exports.seed = function(knex, Promise) {
 		.then(function() {
 			return knex('keywords').insert([
 				{
-
+					
         },
       ]);
 		});
