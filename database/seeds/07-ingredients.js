@@ -29,7 +29,7 @@ exports.seed = function(knex, Promise) {
           name: 'Vanilla Extract'
         },
         { // 8
-          name: 'Large Eggs'
+          name: 'Eggs'
         },
         { // 9
           name: 'Nestle Toll House Semi-Sweet Chocolate Chips'
