@@ -1,14 +1,3 @@
-// tbl.increments('id').primary(); // primary key
-// tbl.string('name').notNullable();
-// tbl.integer('authorId').notNullable().references('id').inTable('users');
-// tbl.dateTime('createdAt').notNullable();
-// tbl.dateTime('updatedAt').notNullable();
-// tbl.integer('rating').notNullable().defaultTo('0');
-// tbl.string('keywords');
-// tbl.text('ingredients').notNullable();
-// tbl.text('instructions').notNullable();
-// tbl.integer('madeIt').notNullable().defaultTo('0');
-
 exports.seed = function(knex, Promise) {
 	return knex('recipes')
 		.del() // delete all recipes

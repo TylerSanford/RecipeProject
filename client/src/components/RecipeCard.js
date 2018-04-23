@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import {
   Card,
   Button,
+  Badge,
   CardImg,
   CardBody,
   CardTitle,
@@ -33,15 +34,20 @@ class Recipe extends Component {
     return (
       <Card
         onClick={this.toggle}
-        className="border border-dark"
-        style={{ width: '400px', margin: '10px' }}
+        className="cardClass border border-secondary"
+        style={{ display: 'table' }}
       >
-        <CardHeader>{this.props.name}</CardHeader>
+        <CardHeader className="bg-primary text-white">
+          {this.props.name}
+          <Badge color="secondary" className="float-right">
+            {this.props.madeIt} <br />Made It!
+          </Badge>
+        </CardHeader>
         <CardImg
           top
           width="100%"
           src="https://thumb1.shutterstock.com/display_pic_with_logo/1535435/446808100/stock-photo-assorted-chinese-food-set-chinese-noodles-fried-rice-dumplings-peking-duck-dim-sum-spring-446808100.jpg"
-          className="rounded-top-0 rounded-bottom"
+          className="rounded-0 rounded-bottom"
         />
         <Collapse isOpen={this.state.collapse}>
           <CardBody>

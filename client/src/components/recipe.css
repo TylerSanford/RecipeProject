@@ -3,7 +3,7 @@
   background-color: #cfd8dc;
   width: 100%;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: flex-start;
 }
 
 .card__title {
@@ -11,4 +11,11 @@
   font-weight: bold;
   white-space: nowrap;
   text-align: center;
+}
+
+.cardClass {
+  width: 400px;
+  margin: 10px;
+  background-color: red;
+  box-sizing: border-box;
 }
