@@ -1,7 +1,7 @@
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('ingredients', function(tbl) {
     tbl.increments('id').primary(); // primary key
-		tbl.string('measurement').notNullable();
+		tbl.string('name').notNullable();
   });
 };
 
