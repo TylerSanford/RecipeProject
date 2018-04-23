@@ -9,15 +9,14 @@ exports.up = function(knex, Promise) {
       .string('username', 32)
       .notNullable()
       .unique('username');
+    tbl
+      .integer('userClass')
+      .references('id')
+      .inTable('userClass');
     tbl.string('password', 100).notNullable();
     tbl.string('email', 70).notNullable();
     tbl.string('vcode', 8).notNullable();
     tbl.boolean('activated').defaultTo(false);
-    tbl
-      .integer('userClass')
-      .references('id')
-      .inTable('userClass')
-      .onDelete('CASCADE');
   });
 };
 

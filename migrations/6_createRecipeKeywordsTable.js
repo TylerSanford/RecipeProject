@@ -5,8 +5,7 @@ exports.up = function(knex, Promise) {
     tbl
       .integer('keywordId')
       .references('id')
-      .inTable('keywords')
-      .onDelete('CASCADE');
+      .inTable('keywords');
   });
 };
 

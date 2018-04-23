@@ -2,6 +2,7 @@ exports.up = function(knex, Promise) {
   return knex.schema.createTable('recipes', function(tbl) {
     tbl.increments('id').primary(); // primary key
     tbl.string('name').notNullable();
+    tbl.integer('authorId').references('id').inTable('users').onDelete('SET NULL');
     tbl
       .dateTime('createdAt')
       .notNullable()
