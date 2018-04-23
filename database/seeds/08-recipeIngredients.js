@@ -84,21 +84,21 @@ exports.seed = function(knex, Promise) {
 				{
 					recipeId: 2,
 					quantity: '10',
-					measurementsId: 6,
-					ingredientsId: 11,
+					measurementsId: 6, // Slices
+					ingredientsId: 11, // Bacon
 				},
 				{
 					recipeId: 2,
 					quantity: '5',
-					measurementsId: 7,
-					ingredientsId: 12,
+					measurementsId: 7, // Whole
+					ingredientsId: 12, // Jalapenos
 					notes: 'Halved and seeded',
 				},
 				{
 					recipeId: 2,
 					quantity: '1',
-					measurementsId: 8,
-					ingredientsId: 13,
+					measurementsId: 8, // Box
+					ingredientsId: 13, // Cream Cheese
 				},
       ]);
 		});
