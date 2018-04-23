@@ -3,8 +3,7 @@ exports.up = function(knex, Promise) {
     tbl.increments('id').primary(); // primary key
     tbl
       .string('class', 32)
-      .notNullable()
-      .unique('class');
+      .notNullable();
   });
 };
 

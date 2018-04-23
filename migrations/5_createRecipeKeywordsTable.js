@@ -1,7 +1,7 @@
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('recipeKeywords', function(tbl) {
     tbl.increments('id').primary(); // primary key
-    tbl.integer('recipeId').notNullable();
+    tbl.integer('recipeId');
     tbl
       .integer('keywordId')
       .references('id')

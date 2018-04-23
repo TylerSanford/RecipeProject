@@ -1,7 +1,7 @@
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('comments', function(tbl) {
     tbl.increments('id').primary(); // primary key
-    tbl.integer('recipesId').notNullable();
+    tbl.integer('recipeId').references('id').inTable('recipes');
     tbl
       .dateTime('createdAt')
       .notNullable()

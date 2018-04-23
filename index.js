@@ -1,5 +1,4 @@
 require('dotenv').config();
-const keys = require('./configuration/keys');
 
 const express = require('express');
 const bodyParser = require('body-parser');
