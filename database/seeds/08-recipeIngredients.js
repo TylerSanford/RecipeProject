@@ -80,6 +80,26 @@ exports.seed = function(knex, Promise) {
 					ingredientsId: 10, // Chopped Nuts
 					notes: 'Optional',
 				},
+				// Recipe #2
+				{
+					recipeId: 2,
+					quantity: '10',
+					measurementsId: 6,
+					ingredientsId: 11,
+				},
+				{
+					recipeId: 2,
+					quantity: '5',
+					measurementsId: 7,
+					ingredientsId: 12,
+					notes: 'Halved and seeded',
+				},
+				{
+					recipeId: 2,
+					quantity: '1',
+					measurementsId: 8,
+					ingredientsId: 13,
+				},
       ]);
 		});
 };
