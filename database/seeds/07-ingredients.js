@@ -41,7 +41,7 @@ exports.seed = function(knex, Promise) {
           name: 'Bacon'
         },
         { // 12
-          name: "Jalapeno's"
+          name: "Jalapenos"
         },
         { // 13
           name: 'Cream Cheese'
