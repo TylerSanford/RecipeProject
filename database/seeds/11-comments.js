@@ -1,6 +1,10 @@
 // tbl.increments('id').primary(); // primary key
-// tbl.integer('recipesId')
-// tbl.string('comment', 350).notNullable();
+//     tbl.integer('recipeId').references('id').inTable('recipes');
+//     tbl
+//       .dateTime('createdAt')
+//       .notNullable()
+//       .defaultTo(knex.fn.now());
+//     tbl.string('comment', 500).notNullable();
 
 exports.seed = function(knex, Promise) {
   return knex('comments')

@@ -2,10 +2,6 @@ exports.up = function(knex, Promise) {
   return knex.schema.createTable('recipes', function(tbl) {
     tbl.increments('id').primary(); // primary key
     tbl.string('name').notNullable();
-    // tbl
-    //   .integer('userId')
-    //   .references('id')
-    //   .inTable('users');
     tbl
       .dateTime('createdAt')
       .notNullable()
@@ -14,6 +10,22 @@ exports.up = function(knex, Promise) {
       .dateTime('updatedAt')
       .notNullable()
       .defaultTo(knex.fn.now());
+    tbl
+      .integer('madeIt')
+      .notNullable()
+      .defaultTo(0);
+  });
+};
+
+exports.down = function(knex, Promise) {
+  return knex.schema.dropTableIfExists('recipes');
+};
+
+
+// tbl
+    //   .integer('userId')
+    //   .references('id')
+    //   .inTable('users');
     // tbl
     //   .integer('rating')
     //   .references('recipeId')
@@ -30,17 +42,7 @@ exports.up = function(knex, Promise) {
     //   .integer('instructions')
     //   .references('id')
     //   .inTable('instructions');
-    tbl
-      .integer('madeIt')
-      .notNullable()
-      .defaultTo(0);
     // tbl
     //   .integer('comments')
     //   .references('recipeId')
     //   .inTable('comments');
-  });
-};
-
-exports.down = function(knex, Promise) {
-  return knex.schema.dropTableIfExists('recipes');
-};
