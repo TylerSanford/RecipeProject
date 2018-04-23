@@ -2,8 +2,7 @@ require('dotenv').config({path: './.env'});
 
 module.exports = {
   client: 'pg',
-  // connection: process.env.DATABASE_URL,
-  connection: 'postgres://postgres:password123@127.0.0.1:5432/recipe',
+  connection: process.env.DATABASE_URL,
   searchPath: ['knex', 'public'],
   useNullAsDefault: true,
   migrations: {
