@@ -59,17 +59,59 @@ recipesRouter.get('/:id', (req, res) => {
 
   db('recipes as r')
     .where('r.id', id)
-    .innerJoin('users as u', 'u.id', '=', 'r.authorId')
-    .select('r.id', 'r.name', 'u.username', 'r.madeIt')
-    .then(record => {
-      if (record) {
-        res.status(200).json(record);
-      } else {
-        res.status(404).json(null);
+    .innerJoin('users as u', 'r.authorId', '=', 'u.id')
+    .innerJoin('ratings', 'r.id', '=', 'ratings.recipeId')
+    .innerJoin('recipeIngredients', 'r.id', '=', 'recipeIngredients.recipeId')
+    .then(records => {
+      let endResult = [];
+      let recipeNames = records.map(item => item.name)
+        .filter((value, index, self) => self.indexOf(value) == index);
+
+      for (let i = 0; i < recipeNames.length; i++) {
+        let mainObject = {};
+        let ratings = [];
+        let author, createdAt, madeIt;
+        let ingredients = [];
+
+        for (let j = 0; j < records.length; j++) {
+          if (records[j].name === recipeNames[i]) {
+            let ingredient = {};
+            let createdAt = records[j].createdAt;
+            let madeIt = records[j].madeIt;
+            let author = records[j].username;
+            ratings.push(records[j].stars);
+            ingredient.quantity = records[j].quantity;
+            ingredients.push(ingredient);
+            
+          }
+          // console.log(records[j].recipeId);
+          // if (records[j].recipeId === id) {
+          //   recipeIngredient = {};
+          //   recipeIngredient.quantity = records[j].quantity;
+          //   recipeIngredients.push(recipeIngredient);
+          //   console.log(recipeIngredient);
+          // }
+        }
+        
+        let ratingsSum = ratings.reduce((a,b) => { return a + b; });
+        
+        let ratingsAvg = ratingsSum / ratings.length;
+        let ratingsRound = (Math.round(ratingsAvg * 4) / 4).toFixed(2);
+
+        mainObject.name = recipeNames[i];
+        mainObject.author = author;
+        mainObject.createdAt = moment(createdAt).format('MMMM Do YYYY');
+        mainObject.rating = ratingsRound;
+        mainObject.madeIt = madeIt;
+        mainObject.ingredients = ingredients;
+
+        endResult.push(mainObject);
       }
+      
+      res.status(200).json(records);
     })
     .catch(err => {
-      res.status(500).json({ error: 'Could not retrieve the recipe' });
+      res.status(500).json({ error: 'Could not retrieve any recipes' });
     });
 });
 
