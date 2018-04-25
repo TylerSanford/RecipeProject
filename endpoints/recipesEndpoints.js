@@ -4,6 +4,8 @@ const recipesRouter = express.Router();
 
 const db = require('../configuration/db.js');
 
+var moment = require('moment');
+
 // const repository = require('./recipesRepository');
 
 recipesRouter.get('/', (req, res) => {
@@ -20,14 +22,13 @@ recipesRouter.get('/', (req, res) => {
       for (let i = 0; i < recipeNames.length; i++) {
         let mainObject = {};
         let ratings = [];
-        let author;
-        let createdAt;
-        let madeIt;
+        let author, createdAt, madeIt;
 
         for (let j = 0; j < records.length; j++) {
           if (records[j].name === recipeNames[i]) {
             createdAt = records[j].createdAt;
             madeIt = records[j].madeIt;
+            author = records[j].username;
             ratings.push(records[j].stars);
           }
         }
@@ -37,7 +38,8 @@ recipesRouter.get('/', (req, res) => {
         let ratingsRound = (Math.round(ratingsAvg * 4) / 4).toFixed(2);
 
         mainObject.name = recipeNames[i];
-        mainObject.createdAt = createdAt;
+        mainObject.author = author;
+        mainObject.createdAt = moment(createdAt).format('MMMM Do YYYY');
         mainObject.rating = ratingsRound;
         mainObject.madeIt = madeIt;
 
