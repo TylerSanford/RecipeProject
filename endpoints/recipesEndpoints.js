@@ -13,7 +13,38 @@ recipesRouter.get('/', (req, res) => {
     .innerJoin('users as u', 'r.authorId', '=', 'u.id')
     .innerJoin('ratings', 'r.id', '=', 'ratings.recipeId')
     .then(records => {
-      res.status(200).json(records);
+      let endResult = [];
+      let recipeNames = records.map(item => item.name)
+        .filter((value, index, self) => self.indexOf(value) == index);
+
+      for (let i = 0; i < recipeNames.length; i++) {
+        let mainObject = {};
+        let ratings = [];
+        let author;
+        let createdAt;
+        let madeIt;
+
+        for (let j = 0; j < records.length; j++) {
+          if (records[j].name === recipeNames[i]) {
+            createdAt = records[j].createdAt;
+            madeIt = records[j].madeIt;
+            ratings.push(records[j].stars);
+          }
+        }
+        let ratingsSum = ratings.reduce((a,b) => { return a + b; });
+        
+        let ratingsAvg = ratingsSum / ratings.length;
+        let ratingsRound = (Math.round(ratingsAvg * 4) / 4).toFixed(2);
+
+        mainObject.name = recipeNames[i];
+        mainObject.createdAt = createdAt;
+        mainObject.rating = ratingsRound;
+        mainObject.madeIt = madeIt;
+
+        endResult.push(mainObject);
+      }
+      
+      res.status(200).json(endResult);
     })
     .catch(err => {
       res.status(500).json({ error: 'Could not retrieve any recipes' });
