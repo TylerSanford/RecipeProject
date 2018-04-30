@@ -33,6 +33,7 @@ class Recipes extends Component {
       <div className="wrapper">
         <div className="page body">
           {this.props.recipes.map((recipe, i) => {
+            console.log(recipe);
             return (
               <RecipeCard
                 name={recipe.name}
