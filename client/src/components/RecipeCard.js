@@ -46,17 +46,10 @@ class Recipe extends Component {
         <CardImg
           top
           width="100%"
-          src="https://thumb1.shutterstock.com/display_pic_with_logo/1535435/446808100/stock-photo-assorted-chinese-food-set-chinese-noodles-fried-rice-dumplings-peking-duck-dim-sum-spring-446808100.jpg"
+          src="http://via.placeholder.com/380x280"
           className="rounded-0 rounded-bottom"
         />
-        <Collapse isOpen={this.state.collapse}>
-          <CardBody>
-            <b>Ingredients</b>
-            <CardText>{this.props.ingredients}</CardText>
-            <b>Instructions</b>
-            <CardText>{this.props.instructions}</CardText>
-          </CardBody>
-        </Collapse>
+        
       </Card>
     );
   }
