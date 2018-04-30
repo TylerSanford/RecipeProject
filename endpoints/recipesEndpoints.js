@@ -16,7 +16,8 @@ recipesRouter.get('/', (req, res) => {
     .innerJoin('ratings', 'r.id', '=', 'ratings.recipeId')
     .then(records => {
       let endResult = [];
-      let recipeNames = records.map(item => item.name)
+      let recipeNames = records
+        .map(item => item.name)
         .filter((value, index, self) => self.indexOf(value) == index);
 
       for (let i = 0; i < recipeNames.length; i++) {
@@ -32,8 +33,10 @@ recipesRouter.get('/', (req, res) => {
             ratings.push(records[j].stars);
           }
         }
-        let ratingsSum = ratings.reduce((a,b) => { return a + b; });
-        
+        let ratingsSum = ratings.reduce((a, b) => {
+          return a + b;
+        });
+
         let ratingsAvg = ratingsSum / ratings.length;
         let ratingsRound = (Math.round(ratingsAvg * 4) / 4).toFixed(2);
 
@@ -45,7 +48,7 @@ recipesRouter.get('/', (req, res) => {
 
         endResult.push(mainObject);
       }
-      
+
       res.status(200).json(endResult);
     })
     .catch(err => {
@@ -59,56 +62,48 @@ recipesRouter.get('/:id', (req, res) => {
 
   db('recipes as r')
     .where('r.id', id)
+    .innerJoin('recipeIngredients as rI', 'rI.recipeId', '=', 'r.id')
     .innerJoin('users as u', 'r.authorId', '=', 'u.id')
-    .innerJoin('ratings', 'r.id', '=', 'ratings.recipeId')
-    .innerJoin('recipeIngredients', 'r.id', '=', 'recipeIngredients.recipeId')
-    .then(records => {
+    .innerJoin('measurements as m', 'm.id', '=', 'rI.measurementsId')
+    .innerJoin('ingredients as i', 'i.id', '=', 'rI.ingredientsId')
+    .select(
+      'r.name',
+      'u.username',
+      'rI.quantity',
+      'm.measurement',
+      'i.name as ingredient',
+      'rI.notes'
+    )
+    .then(function(records) {
+      let mainObject = {};
       let endResult = [];
-      let recipeNames = records.map(item => item.name)
-        .filter((value, index, self) => self.indexOf(value) == index);
+      let recipeName = records[0].name;
+      let author = records[0].username;
+      let ingredients = [];
 
-      for (let i = 0; i < recipeNames.length; i++) {
-        let mainObject = {};
-        let ratings = [];
-        let author, createdAt, madeIt;
-        let ingredients = [];
+      for (let i = 0; i < records.length; i++) {
+        if (records[i].name === recipeName) {
+          let ingredient = {};
 
-        for (let j = 0; j < records.length; j++) {
-          if (records[j].name === recipeNames[i]) {
-            let ingredient = {};
-            let createdAt = records[j].createdAt;
-            let madeIt = records[j].madeIt;
-            let author = records[j].username;
-            ratings.push(records[j].stars);
-            ingredient.quantity = records[j].quantity;
-            ingredients.push(ingredient);
-            
+          ingredient.quantity = records[i].quantity;
+          ingredient.measurement = records[i].measurement;
+          ingredient.ingredient = records[i].ingredient;
+
+          if (records[i].notes) {
+            ingredient.notes = records[i].notes;
           }
-          // console.log(records[j].recipeId);
-          // if (records[j].recipeId === id) {
-          //   recipeIngredient = {};
-          //   recipeIngredient.quantity = records[j].quantity;
-          //   recipeIngredients.push(recipeIngredient);
-          //   console.log(recipeIngredient);
-          // }
+
+          ingredients.push(ingredient);
         }
-        
-        let ratingsSum = ratings.reduce((a,b) => { return a + b; });
-        
-        let ratingsAvg = ratingsSum / ratings.length;
-        let ratingsRound = (Math.round(ratingsAvg * 4) / 4).toFixed(2);
-
-        mainObject.name = recipeNames[i];
-        mainObject.author = author;
-        mainObject.createdAt = moment(createdAt).format('MMMM Do YYYY');
-        mainObject.rating = ratingsRound;
-        mainObject.madeIt = madeIt;
-        mainObject.ingredients = ingredients;
-
-        endResult.push(mainObject);
       }
-      
-      res.status(200).json(records);
+
+      mainObject.name = recipeName;
+      mainObject.author = author;
+      mainObject.ingredients = ingredients;
+
+      endResult.push(mainObject);
+
+      res.status(200).json(mainObject);
     })
     .catch(err => {
       res.status(500).json({ error: 'Could not retrieve any recipes' });
